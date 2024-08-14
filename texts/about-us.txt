@@ -1,0 +1,7 @@
+Willkommen bei Schmidt Crafted Apps! Hier stecken wir unser Herzblut in jedes einzelne Projekt. Obwohl wir ein Ein-Mann-Team sind, treibt uns die Leidenschaft für das Programmieren und die Neugier auf neue Technologien an.
+
+Derzeit widmen wir uns intensiv dem Lernen und Anwenden von Programmiersprachen und Frameworks wie React Native, HTML, CSS und JavaScript. Unser Ziel ist es, durch das Umsetzen von kreativen Hobby-Projekten nicht nur unsere Fähigkeiten weiterzuentwickeln, sondern auch nützliche und interessante Apps zu schaffen, die anderen Freude bereiten.
+
+Bei Schmidt Crafted Apps geht es nicht nur um das Erstellen von Code, sondern darum, Ideen in die Realität umzusetzen. Wir lernen stetig dazu und sind stolz darauf, unsere Fortschritte mit Ihnen zu teilen.
+
+Schauen Sie sich um und entdecken Sie, was wir bisher erreicht haben – und seien Sie gespannt auf das, was noch kommt!

@@ -3,51 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moderne Webseite</title>
+    <title>Schmidt Crafted Apps</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="images/Schmidt_Crafted_Apps_logo.png" type="image/png">
+
     <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"></script>
 </head>
 <body>
     <!-- Header Section -->
     <header class="hero-section">
-        <div class="logo">Dein Logo</div>
-        <h1>Willkommen auf unserer Webseite!</h1>
-        <p>Scroll down to explore</p>
+        <div class="nav">
+            <!-- Logo anzeigen -->
+            <div class="logo-container">
+                <img src="images/Schmidt_Crafted_Apps_logo.png" alt="Schmidt Crafted Apps Logo" class="logo-img" >
+                <div class="logo">SCA - Schmidt Crafted Apps</div>
+            </div>
+            <ul>
+                <li><a href="#about-us">Über uns</a></li>
+                <li><a href="#projects">Projekte</a></li>
+                <li><a href="#patreon">Patreon</a></li>
+            </ul>
+        </div>
+        <div class="hero-content">
+            <h1>Willkommen bei <br> Schmidt Crafted Apps</h1>
+            <p>Innovative und kreative Apps sind bei uns zuhause</p>
+        </div>
     </header>
 
-    <!-- Über uns Section -->
-    <section class="about-section">
-        <h2>Über uns</h2>
-        <p>Hier steht eine kurze Beschreibung über uns. Wir sind ein kreatives Team, das innovative Lösungen entwickelt.</p>
-    </section>
-
-    <!-- Projekte Section -->
-    <section class="projects-section">
-        <h2>Unsere Projekte</h2>
-        <div class="projects">
-            <div class="project">
-                <h3>Projekt 1</h3>
-                <p>Beschreibung des Projekts 1.</p>
-            </div>
-            <div class="project">
-                <h3>Projekt 2</h3>
-                <p>Beschreibung des Projekts 2.</p>
-            </div>
-            <!-- Weitere Projekte können hier hinzugefügt werden -->
+    <!-- Section 1: Über uns -->
+    <section id="about-us" class="content-section">
+        <div class="content-container">
+            <h2>Über uns</h2>
+            <div id="about-us-content">
+                <!-- Textinhalt kann hier direkt eingefügt werden -->
+                <p>Hallo, ich bin Silas, 33 Jahre alt, aus Essen und aktuell als Application Manager bei der SG Vipion GmbH tätig.
+                    Neben meiner Arbeit habe ich ein großes Interesse für das Programmieren entwickelt, die ich in meiner Freizeit auslebe.</p>
+                <p>Obwohl ich noch am Anfang meines Weges stehe und das Programmieren gerade erst lerne, stecke ich bereits viel Energie in meine Projekte. 
+                    Besonders interessieren mich Technologien wie React Native, HTML, CSS und JavaScript, mit denen ich versuche, spannende Ideen in Apps umzusetzen.</p>
+                <p>Unter dem Namen <strong>Schmidt Crafted Apps</strong> arbeite ich als Ein-Mann-Team an verschiedenen Hobby-Projekten. 
+                    Diese Projekte helfen mir nicht nur, meine Programmierfähigkeiten zu verbessern, sondern ermöglichen es mir auch, meine kreativen Ideen zum Leben zu erwecken.</p>
+                <p>Ich freue mich darauf, meine Fortschritte zu teilen und bin gespannt, wohin mich dieser Weg noch führen wird. 
+                    Schauen Sie sich gerne um und begleiten Sie mich auf meiner Reise durch die Welt des Programmierens!</p>                            </div>
         </div>
     </section>
 
-    <!-- Patreon Section -->
-    <section class="patreon-section">
-        <h2>Unterstütze uns auf Patreon</h2>
-        <p>Wenn du unsere Arbeit schätzt, überlege, uns auf Patreon zu unterstützen.</p>
-        <a href="https://www.patreon.com" target="_blank" class="patreon-button">Unterstütze uns</a>
+    <!-- Section 2: Projekte -->
+    <section id="projects" class="content-section">
+        <div class="content-container">
+            <h2>Unsere Projekte</h2>
+            <div class="projects">
+                <div class="project">
+                    <h3>Android App - factsy</h3>
+                    <p>Ein innovatives Projekt zur Verbesserung des Nutzererlebnisses.</p>
+                </div>
+                <br>
+                <div class="project">
+                    <h3>Excel to JSON Converter</h3>
+                    <p>Ein weiteres spannendes Projekt, das neue Technologien einsetzt.</p>
+                </div>
+                <div class="project">
+                    <h3>Image Generator mit ChatGPT</h3>
+                    <p>Ein weiteres spannendes Projekt, das neue Technologien einsetzt.</p>
+                </div>
+
+                <!-- Weitere Projekte können hier hinzugefügt werden -->
+            </div>
+        </div>    </section>
+
+    <!-- Section 3: Patreon -->
+    <section id="patreon" class="content-section">
+        <div class="content-container">
+            <h2>Unterstütze uns auf Patreon</h2>
+            <div id="patreon-content">
+                <!-- Textinhalt kann hier direkt eingefügt werden -->
+                <p> Wenn Sie unsere Arbeit schätzt, unterstützen Sie uns auf Patreon, um noch mehr kreative Projekte zu realisieren. </p>
+            </div>
+            <a href="https://www.patreon.com" target="_blank" class="patreon-button">Unterstütze uns</a>
+        </div>
     </section>
 
     <!-- Footer Section -->
     <footer class="footer-section">
-        <p>&copy; 2024 Dein Unternehmen. Alle Rechte vorbehalten.</p>
-        <a href="pages/datenschutz.html">Datenschutz</a>
-        <a href="pages/impressum.html">Impressum</a>
+        <div class="footer-links">
+            <a href="#">Kontakt</a>
+            <a href="#">Impressum</a>
+            <a href="#">Datenschutz</a>
+        </div>
     </footer>
 
     <script src="js/scripts.js"></script>
