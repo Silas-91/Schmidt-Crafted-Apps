@@ -1,0 +1,96 @@
+/* Allgemeine Stile */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    scroll-behavior: smooth;
+    color: #ffffff;
+    background-color: #121212;
+}
+
+/* Hero Section */
+.hero-section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, #ff5722, #e91e63);
+    text-align: center;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Über uns Section */
+.about-section {
+    padding: 50px 20px;
+    background-color: #673ab7;
+    text-align: center;
+}
+
+.about-section h2 {
+    margin-bottom: 20px;
+}
+
+/* Projekte Section */
+.projects-section {
+    padding: 50px 20px;
+    background-color: #3f51b5;
+    text-align: center;
+}
+
+.projects {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.project {
+    background-color: #009688;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    width: 300px;
+}
+
+/* Patreon Section */
+.patreon-section {
+    padding: 50px 20px;
+    background-color: #ff9800;
+    text-align: center;
+}
+
+.patreon-button {
+    background-color: #e91e63;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.patreon-button:hover {
+    background-color: #c2185b;
+}
+
+/* Footer Section */
+.footer-section {
+    padding: 20px;
+    background-color: #212121;
+    text-align: center;
+}
+
+.footer-section a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer-section a:hover {
+    text-decoration: underline;
+}
