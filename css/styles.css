@@ -2,8 +2,9 @@
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
-    background-color: #f7f7f7; /* Standard-Hintergrundfarbe für den Rest der Seite */
+    background-color: #f7f7f7;
     color: #333;
+    line-height: 1.6;
 }
 
 a {
@@ -19,8 +20,8 @@ ul {
 /* Header Section */
 .hero-section {
     height: 100vh;
-    background-color: #e5cea8; /* Hintergrundfarbe der hero-section */
-    color: #333; /* Textfarbe */
+    background: linear-gradient(to right, #ff7e5f, #feb47b); /* Updated background */
+    color: #fff;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -45,8 +46,8 @@ ul {
 }
 
 .logo-img {
-    height: 50px; /* Höhe des Logos anpassen */
-    margin-right: 10px; /* Abstand zwischen Logo und Text */
+    height: 50px;
+    margin-right: 10px;
 }
 
 .logo {
@@ -61,12 +62,12 @@ ul {
 
 .nav ul li a {
     font-size: 1rem;
-    color: #333; /* Farbe der Links in der hero-section */
+    color: #fff;
     transition: color 0.3s;
 }
 
 .nav ul li a:hover {
-    color: #ff6347;
+    color: #ffe082;
 }
 
 .hero-content h1 {
@@ -74,22 +75,68 @@ ul {
     margin: 0;
     padding: 0 20px;
     max-width: 800px;
+    animation: fadeInDown 1s ease-out forwards;
 }
 
 .hero-content p {
     font-size: 1.25rem;
     margin-top: 10px;
+    animation: fadeInUp 1.2s ease-out forwards;
+}
+
+/* Keyframes */
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Section Visibility Animation */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Image Animation */
+.zoom-in {
+    transition: transform 0.5s ease;
+}
+
+.zoom-in:hover {
+    transform: scale(1.05);
 }
 
 /* Content Sections */
 .content-section {
     padding: 100px 20px;
     text-align: center;
-    background-color: #fff; /* Hintergrundfarbe für andere Abschnitte */
+    background-color: #fff;
 }
 
 .content-container {
-    max-width: 1200px; /* Maximale Breite für die Container */
+    max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
@@ -99,12 +146,12 @@ h2 {
     margin-bottom: 20px;
 }
 
-/* Projekte */
+/* Projects */
 .projects {
     display: flex;
-    flex-wrap: wrap; /* Ermöglicht Umbruch der Elemente */
-    gap: 20px; /* Abstand zwischen den Projekten */
-    justify-content: center; /* Zentriert die Projekte */
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
 }
 
 .project {
@@ -112,21 +159,20 @@ h2 {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    flex: 1 1 calc(33.333% - 40px); /* Flexibler Basiswert mit Umbruch bei Platzmangel */
-    box-sizing: border-box; /* Sicherstellt, dass Padding im Boxmodell enthalten ist */
-    min-width: 250px; /* Minimale Breite für Projekte */
-    max-width: 100%; /* Maximale Breite erlaubt die volle Breite bei kleineren Bildschirmen */
+    flex: 1 1 calc(33.333% - 40px);
+    box-sizing: border-box;
+    min-width: 250px;
 }
 
 @media (max-width: 768px) {
     .project {
-        flex: 1 1 calc(50% - 40px); /* Ändert Layout bei kleineren Bildschirmen */
+        flex: 1 1 calc(50% - 40px);
     }
 }
 
 @media (max-width: 480px) {
     .project {
-        flex: 1 1 100%; /* Bei sehr kleinen Bildschirmen ist jedes Projekt auf voller Breite */
+        flex: 1 1 100%;
     }
 }
 
