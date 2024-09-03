@@ -140,6 +140,30 @@
             transform: translateY(50px);
             filter: blur(10px);
         }
+
+        /* Scroll-to-Top Button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            width: 50px;
+            height: 50px;
+            background-color: #333;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 24px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .scroll-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
     </style>
 </head>
 <body>
@@ -211,9 +235,15 @@
         </div>
     </footer>
 
+    <!-- Scroll-to-Top Button -->
+    <div class="scroll-to-top" id="scrollToTopBtn">
+        &#8679;
+    </div>
+
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const sections = document.querySelectorAll('.section');
+            const scrollToTopBtn = document.getElementById('scrollToTopBtn');
 
             const observer = new IntersectionObserver(entries => {
                 entries.forEach(entry => {
@@ -231,6 +261,23 @@
 
             sections.forEach(section => {
                 observer.observe(section);
+            });
+
+            // Show or hide the scroll-to-top button
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    scrollToTopBtn.classList.add('show');
+                } else {
+                    scrollToTopBtn.classList.remove('show');
+                }
+            });
+
+            // Scroll to the top when the button is clicked
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
             });
         });
     </script>
