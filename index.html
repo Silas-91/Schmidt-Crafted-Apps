@@ -24,7 +24,10 @@
         }
         .hero-section {
             height: 100vh;
-            background-color: #e5cea8;
+            background-image: url('/images/background_sca_3.png'); /* Add the image URL */
+    background-size: cover; /* Ensures the image covers the entire section */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -157,7 +160,10 @@
             right: 40px;
             width: 50px;
             height: 50px;
-            background-color: #333;
+            background-image: url('/images/background_sca_3.png'); /* Add the image URL */
+    background-size: cover; /* Ensures the image covers the entire section */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat;
             color: #333;
             border-radius: 50%;
             display: flex;
@@ -177,7 +183,10 @@
 
 /* Footer styles */
 .footer-section {
-    background-color: #e5cea8;  /* Make sure the background is as desired */
+    background-image: url('/images/background_sca_3.png'); /* Add the image URL */
+    background-size: cover; /* Ensures the image covers the entire section */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat;
     padding: 20px;
     text-align: center;
     font-family: 'Times New Roman', sans-serif;  /* Apply font to footer */
@@ -194,6 +203,13 @@
     text-decoration: underline;
     color: #000;  /* Slightly darker on hover */
 }   
+
+.centered-image {
+    display: block;
+    margin: 0 auto;
+    width: 25%; /* Adjust the width as needed */
+    height: auto;
+}
  </style>
 
 
@@ -233,6 +249,7 @@
                 <h2>Unsere Projekte</h2>
                 <div class="projects">
                     <div class="project">
+                        <img src="/images/logo_4_round.png" alt="factsy logo" class="centered-image"">
                         <h3>Android App - factsy</h3>
                         <p>Ein innovatives Projekt zur Verbesserung des Nutzererlebnisses.</p>
                     </div>
