@@ -8,13 +8,19 @@
     <!-- Favicon -->
     <link rel="icon" href="images/Schmidt_Crafted_Apps_logo.png" type="image/png">
 
+    <!-- Include Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
     <style>
         body {
             margin: 0;
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Times New Roman', sans-serif;
             background-color: #f7f7f7;
             color: #333;
             overflow-x: hidden;
+        }
+        html {
+            scroll-behavior: smooth; /* CSS smooth scrolling */
         }
         .hero-section {
             height: 100vh;
@@ -70,58 +76,28 @@
             padding: 0 20px;
             max-width: 800px;
         }
-        .hero-content p {
-            font-size: 1.25rem;
-            margin-top: 10px;
+
+        /* Typing effect styles */
+        .typewriter {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            white-space: nowrap;
+            border-right: 2px solid;
+            overflow: hidden;
+            display: inline-block;
         }
-        .content-section {
-            padding: 100px 20px;
-            text-align: center;
-            background-color: #fff;
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
         }
-        .content-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: black; }
         }
-        h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-        .projects {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-        }
-        .project {
-            background-color: #e0e0e0;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-            flex: 1 1 calc(33.333% - 40px);
-            box-sizing: border-box;
-            min-width: 250px;
-            transition: transform 0.5s ease-in-out, filter 0.3s ease-in-out;
-        }
-        .project:hover {
-            transform: scale(1.05) rotate(5deg);
-            filter: brightness(1.2);
-        }
-        .footer-section {
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
-        .footer-links a {
-            margin: 0 15px;
-            color: #fff;
-            text-decoration: none;
-        }
-        .footer-links a:hover {
-            text-decoration: underline;
-        }
+
+        /* Section animations */
         .section {
             opacity: 0;
             transform: translateY(50px);
@@ -135,10 +111,43 @@
             transform: translateY(0);
             filter: blur(0);
         }
-        .section.invisible {
-            opacity: 0;
-            transform: translateY(50px);
-            filter: blur(10px);
+
+        /* Ensure content sections are centered and spaced properly */
+        .content-section {
+            padding: 100px 20px;
+            text-align: center;
+            background-color: #fff;
+        }
+
+        .content-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .projects {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-around; /* Ensures proper spacing between project elements */
+        }
+
+        .project {
+            background-color: #e0e0e0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            flex: 1 1 calc(33.333% - 40px);
+            box-sizing: border-box;
+            min-width: 250px;
+            text-align: left; /* Ensure text is aligned to the left */
+            transition: transform 0.5s ease-in-out, filter 0.3s ease-in-out;
+        }
+
+        .project:hover {
+            transform: scale(1.05) rotate(5deg);
+            filter: brightness(1.2);
         }
 
         /* Scroll-to-Top Button */
@@ -149,7 +158,7 @@
             width: 50px;
             height: 50px;
             background-color: #333;
-            color: white;
+            color: #333;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -163,8 +172,31 @@
         .scroll-to-top.show {
             opacity: 1;
             visibility: visible;
+            background-color: #e5cea8;
         }
-    </style>
+
+/* Footer styles */
+.footer-section {
+    background-color: #e5cea8;  /* Make sure the background is as desired */
+    padding: 20px;
+    text-align: center;
+    font-family: 'Times New Roman', sans-serif;  /* Apply font to footer */
+}
+
+.footer-links a {
+    margin: 0 15px;
+    color: #333; /* Change color to dark for better contrast */
+    text-decoration: none;
+    font-family: 'Times New Roman', sans-serif; /* Ensure font is applied to links */
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+    color: #000;  /* Slightly darker on hover */
+}   
+ </style>
+
+
 </head>
 <body>
     <!-- Header Section -->
@@ -182,7 +214,7 @@
         </div>
         <div class="hero-content">
             <h1>Willkommen bei <br> Schmidt Crafted Apps</h1>
-            <p>Innovative und kreative Apps sind bei uns zuhause</p>
+            <p id="typing-text"></p> <!-- Typing effect will be applied here -->
         </div>
     </header>
 
@@ -242,17 +274,73 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            const sections = document.querySelectorAll('.section');
-            const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+            const textElement = document.getElementById("typing-text");
+            const phrases = [
+                "Innovative und kreative Apps sind bei uns zuhause.",
+                "Innovative und kreative Apps sind unsere Leidenschaft."
+            ];
+            let currentPhraseIndex = 0;
+            let currentText = '';
+            let i = 0;
 
+            function type() {
+                if (i < phrases[currentPhraseIndex].length) {
+                    currentText += phrases[currentPhraseIndex].charAt(i);
+                    textElement.innerHTML = `<span class="typewriter">${currentText}</span>`;
+                    i++;
+                    setTimeout(type, 100);  // Typing speed
+                } else {
+                    setTimeout(deleteText, 1500);  // Wait before deleting
+                }
+            }
+
+            function deleteText() {
+                if (i > 0) {
+                    currentText = currentText.slice(0, -1);
+                    textElement.innerHTML = `<span class="typewriter">${currentText}</span>`;
+                    i--;
+                    setTimeout(deleteText, 50);  // Deletion speed
+                } else {
+                    currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+                    setTimeout(type, 500);  // Pause before typing next phrase
+                }
+            }
+
+            type();  // Start the typing effect
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetElement = document.querySelector(this.getAttribute('href'));
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Scroll-to-top button functionality
+            const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    scrollToTopBtn.classList.add('show');
+                } else {
+                    scrollToTopBtn.classList.remove('show');
+                }
+            });
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Section visibility on scroll
+            const sections = document.querySelectorAll('.section');
             const observer = new IntersectionObserver(entries => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
-                        entry.target.classList.remove('invisible');
-                    } else {
-                        entry.target.classList.remove('visible');
-                        entry.target.classList.add('invisible');
                     }
                 });
             }, {
@@ -261,23 +349,6 @@
 
             sections.forEach(section => {
                 observer.observe(section);
-            });
-
-            // Show or hide the scroll-to-top button
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 300) {
-                    scrollToTopBtn.classList.add('show');
-                } else {
-                    scrollToTopBtn.classList.remove('show');
-                }
-            });
-
-            // Scroll to the top when the button is clicked
-            scrollToTopBtn.addEventListener('click', () => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
             });
         });
     </script>
