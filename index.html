@@ -1,373 +1,294 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Schmidt Crafted Apps</title>
-    
-    <!-- Favicon -->
-    <link rel="icon" href="images/Schmidt_Crafted_Apps_logo.png" type="image/png">
-
-    <!-- Include Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Times New Roman', sans-serif;
-            background-color: #f7f7f7;
-            color: #333;
-            overflow-x: hidden;
-        }
-        html {
-            scroll-behavior: smooth; /* CSS smooth scrolling */
-        }
-        .hero-section {
-            height: 100vh;
-            background-image: url('images/background_sca_3.png'); /* Add the image URL */
-    background-size: cover; /* Ensures the image covers the entire section */
-    background-position: center; /* Centers the image */
-    background-repeat: no-repeat;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            position: relative;
-        }
-        .nav {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: calc(100% - 40px);
-        }
-        .logo-container {
-            display: flex;
-            align-items: center;
-        }
-        .logo-img {
-            height: 50px;
-            margin-right: 10px;
-        }
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-        .nav ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            margin: 0;
-        }
-        .nav ul li a {
-            font-size: 1rem;
-            color: #333;
-            text-decoration: none;
-            transition: background-color 0.3s;
-        }
-        .nav ul li a:hover {
-            color: #ff6347;
-        }
-        .hero-content h1 {
-            font-size: 3.5rem;
-            margin: 0;
-            padding: 0 20px;
-            max-width: 800px;
-        }
-
-        /* Typing effect styles */
-        .typewriter {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.5rem;
-            white-space: nowrap;
-            border-right: 2px solid;
-            overflow: hidden;
-            display: inline-block;
-        }
-
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
-        }
-
-        @keyframes blink-caret {
-            from, to { border-color: transparent; }
-            50% { border-color: black; }
-        }
-
-        /* Section animations */
-        .section {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-            margin: 50px 0;
-            filter: blur(10px);
-            transition: filter 0.8s ease-out, opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        .section.visible {
-            opacity: 1;
-            transform: translateY(0);
-            filter: blur(0);
-        }
-
-        /* Ensure content sections are centered and spaced properly */
-        .content-section {
-            padding: 100px 20px;
-            text-align: center;
-            background-color: #fff;
-        }
-
-        .content-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .projects {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: space-around; /* Ensures proper spacing between project elements */
-        }
-
-        .project {
-            background-color: #e0e0e0;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-            flex: 1 1 calc(33.333% - 40px);
-            box-sizing: border-box;
-            min-width: 250px;
-            text-align: left; /* Ensure text is aligned to the left */
-            transition: transform 0.5s ease-in-out, filter 0.3s ease-in-out;
-        }
-
-        .project:hover {
-            transform: scale(1.05) rotate(5deg);
-            filter: brightness(1.2);
-        }
-
-        /* Scroll-to-Top Button */
-        .scroll-to-top {
-            position: fixed;
-            bottom: 40px;
-            right: 40px;
-            width: 50px;
-            height: 50px;
-            background-image: url('images/background_sca_3.png'); /* Add the image URL */
-    background-size: cover; /* Ensures the image covers the entire section */
-    background-position: center; /* Centers the image */
-    background-repeat: no-repeat;
-            color: #333;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 24px;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-        }
-        .scroll-to-top.show {
-            opacity: 1;
-            visibility: visible;
-            background-color: #e5cea8;
-        }
-
-/* Footer styles */
-.footer-section {
-    background-image: url('images/background_sca_3.png'); /* Add the image URL */
-    background-size: cover; /* Ensures the image covers the entire section */
-    background-position: center; /* Centers the image */
-    background-repeat: no-repeat;
-    padding: 20px;
-    text-align: center;
-    font-family: 'Times New Roman', sans-serif;  /* Apply font to footer */
-}
-
-.footer-links a {
-    margin: 0 15px;
-    color: #333; /* Change color to dark for better contrast */
-    text-decoration: none;
-    font-family: 'Times New Roman', sans-serif; /* Ensure font is applied to links */
-}
-
-.footer-links a:hover {
-    text-decoration: underline;
-    color: #000;  /* Slightly darker on hover */
-}   
-
-.centered-image {
-    display: block;
-    margin: 0 auto;
-    width: 25%; /* Adjust the width as needed */
-    height: auto;
-}
- </style>
-
-
+    <meta name="description" content="Schmidt Ruhr Apps entwickelt moderne Apps, Anwendungen, KI-Integrationen und Automatisierungen aus Essen mit klarem Fokus auf Tempo, Qualität und Vibecoding-Workflows.">
+    <meta name="author" content="Silas Schmidt">
+    <meta name="theme-color" content="#2383ff">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:title" content="Schmidt Ruhr Apps | Apps, Anwendungen, KI und Automation">
+    <meta property="og:description" content="Moderne Apps und Anwendungen aus dem Ruhrgebiet, schnell entwickelt mit KI-gestützten Vibecoding-Workflows.">
+    <meta property="og:image" content="https://schmidt-ruhr-apps.de/images/schmidt-ruhr-apps-logo.svg">
+    <meta property="og:url" content="https://schmidt-ruhr-apps.de/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Schmidt Ruhr Apps | Apps, Anwendungen, KI und Automation">
+    <meta name="twitter:description" content="Moderne Apps und Anwendungen aus dem Ruhrgebiet, schnell entwickelt mit KI-gestützten Vibecoding-Workflows.">
+    <meta name="twitter:image" content="https://schmidt-ruhr-apps.de/images/schmidt-ruhr-apps-logo.svg">
+    <title>Schmidt Ruhr Apps | Apps, Anwendungen, KI und Automation</title>
+    <link rel="canonical" href="https://schmidt-ruhr-apps.de/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="images/schmidt-ruhr-apps-logo.svg" type="image/svg+xml">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Schmidt Ruhr Apps",
+      "url": "https://schmidt-ruhr-apps.de/",
+      "logo": "https://schmidt-ruhr-apps.de/images/schmidt-ruhr-apps-logo.svg",
+      "image": "https://schmidt-ruhr-apps.de/images/schmidt-ruhr-apps-logo.svg",
+      "description": "Entwicklung moderner Apps, Anwendungen, KI-Integrationen und Prozessautomatisierungen aus Essen.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Essen",
+        "addressCountry": "DE"
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Silas Schmidt"
+      },
+      "sameAs": [
+        "https://www.patreon.com/SchmidtCraftedApps"
+      ]
+    }
+    </script>
 </head>
 <body>
-    <!-- Header Section -->
-    <header class="hero-section">
-        <div class="nav">
-            <div class="logo-container">
-                <img src="images/Schmidt_Crafted_Apps_logo.png" alt="Schmidt Crafted Apps Logo" class="logo-img">
-                <div class="logo">SCA - Schmidt Crafted Apps</div>
-            </div>
-            <ul>
-                <li><a href="#about-us">Über uns</a></li>
-                <li><a href="#projects">Projekte</a></li>
-                <li><a href="#patreon">Patreon</a></li>
-            </ul>
-        </div>
-        <div class="hero-content">
-            <h1>Willkommen bei <br> Schmidt Crafted Apps</h1>
-            <p id="typing-text"></p> <!-- Typing effect will be applied here -->
-        </div>
-    </header>
+    <a class="skip-link" href="#main-content">Zum Inhalt springen</a>
 
-    <div class="content">
-        <!-- Section 1: Über uns -->
-        <section id="about-us" class="content-section section">
-            <div class="content-container">
-                <h2>Über uns</h2>
-                <p>Hallo, ich bin Silas, 33 Jahre alt, aus Essen und aktuell als Application Manager bei der SG Vipion GmbH tätig...</p>
-            </div>
-        </section>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo" aria-label="Startseite Schmidt Ruhr Apps">
+                <img src="images/schmidt-ruhr-apps-logo.svg" alt="Logo von Schmidt Ruhr Apps" class="brand-mark">
+                <span class="brand-copy">
+                    <span class="brand-name">Schmidt Ruhr Apps</span>
+                    <span class="brand-subtitle">Apps | KI | Automation</span>
+                </span>
+            </a>
 
-        <!-- Section 2: Projekte -->
-        <section id="projects" class="content-section section">
-            <div class="content-container">
-                <h2>Unsere Projekte</h2>
-                <div class="projects">
-                    <div class="project">
-                        <img src="images/logo_4_round.png" alt="factsy logo" class="centered-image"">
-                        <h3>Android App - factsy</h3>
-                        <p>Ein innovatives Projekt zur Verbesserung des Nutzererlebnisses.</p>
+            <button
+                class="menu-toggle"
+                id="mobile-menu"
+                type="button"
+                aria-expanded="false"
+                aria-controls="site-navigation"
+                aria-label="Navigation öffnen"
+            >
+                <i class="fa-solid fa-bars" aria-hidden="true"></i>
+            </button>
+
+            <div class="nav-links" id="site-navigation">
+                <a href="index.html" class="active" aria-current="page">Home</a>
+                <a href="pages/about.html">Über mich</a>
+                <a href="pages/projects.html">Projekte</a>
+                <a href="pages/contact.html">Kontakt</a>
+                <button class="theme-toggle" id="theme-btn" type="button" aria-label="Farbschema wechseln">
+                    <i class="fa-solid fa-moon" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <header class="hero">
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-content reveal">
+                        <div class="brand-pill">
+                            <img src="images/schmidt-ruhr-apps-logo.svg" alt="" class="brand-mark">
+                            <span class="brand-copy">
+                                <span class="brand-name">Schmidt Ruhr Apps</span>
+                                <span class="brand-subtitle">Aus Essen für das Revier und darüber hinaus</span>
+                            </span>
+                        </div>
+                        <h1>Ich baue Apps und Anwendungen, die schnell Form annehmen und im Alltag bestehen.</h1>
+                        <p class="lead">
+                            Schmidt Ruhr Apps verbindet Produktdenken, saubere technische Umsetzung und KI-gestützte Vibecoding-Workflows.
+                            Das Ergebnis sind moderne Anwendungen, die schnell starten, belastbar wachsen und im Alltag überzeugen.
+                        </p>
+                        <div class="hero-btns">
+                            <a href="pages/projects.html" class="btn btn-primary">Projekte ansehen</a>
+                            <a href="pages/contact.html" class="btn btn-secondary">Projekt besprechen</a>
+                        </div>
                     </div>
-                    <div class="project">
-                        <h3>Excel to JSON Converter</h3>
-                        <p>Ein weiteres spannendes Projekt, das neue Technologien einsetzt.</p>
+
+                    <div class="hero-visual reveal">
+                        <img src="images/background_sca_7.png" alt="Abstrakte Visualisierung moderner App- und KI-Entwicklung">
+                        <div class="floating-card fc-1">
+                            <i class="fa-solid fa-bolt card-icon-secondary" aria-hidden="true"></i>
+                            <div>
+                                <strong>Schnell lieferbar</strong>
+                                <small>Fokus auf klare Umsetzungswege</small>
+                            </div>
+                        </div>
+                        <div class="floating-card fc-2">
+                            <i class="fa-solid fa-shield-halved card-icon-primary" aria-hidden="true"></i>
+                            <div>
+                                <strong>Sauber aufgebaut</strong>
+                                <small>Wartbar statt nur kurzfristig gelöst</small>
+                            </div>
+                        </div>
                     </div>
-                    <div class="project">
-                        <h3>Image Generator mit ChatGPT</h3>
-                        <p>Ein weiteres spannendes Projekt, das neue Technologien einsetzt.</p>
-                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section class="container metrics-section" aria-label="Kennzahlen">
+            <div class="stats-grid">
+                <div class="stat-item reveal">
+                    <h2>Android</h2>
+                    <p>Native App-Entwicklung mit Fokus auf Performance und klare UX.</p>
+                </div>
+                <div class="stat-item reveal">
+                    <h2>Automation</h2>
+                    <p>Manuelle Abläufe werden zu stabilen, wiederholbaren Prozessen.</p>
+                </div>
+                <div class="stat-item reveal">
+                    <h2>KI-Integration</h2>
+                    <p>Moderne Modelle dort einsetzen, wo sie echten Mehrwert liefern.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Section 3: Patreon -->
-        <section id="patreon" class="content-section section">
-            <div class="content-container">
-                <h2>Unterstütze uns auf Patreon</h2>
-                <p>Wenn Sie unsere Arbeit schätzt, unterstützen Sie uns auf Patreon, um noch mehr kreative Projekte zu realisieren.</p>
-                <a href="https://www.patreon.com" target="_blank" class="patreon-button">Unterstütze uns</a>
+        <section class="section-padding">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <span class="badge">Leistungsspektrum</span>
+                    <h2>Von der ersten Idee bis zur tragfähigen App oder Anwendung</h2>
+                    <p>
+                        Ich unterstütze bei der Entwicklung neuer Produkte, bei der Modernisierung bestehender Systeme
+                        und bei der Integration intelligenter Automatisierungen in bestehende Abläufe.
+                    </p>
+                </div>
+
+                <div class="projects-grid service-grid">
+                    <article class="project-card reveal service-card">
+                        <div class="project-content">
+                            <i class="fa-solid fa-mobile-screen service-icon card-icon-primary" aria-hidden="true"></i>
+                            <h3>Native App Entwicklung</h3>
+                            <p>Robuste Android-Apps mit sauberer Architektur, klarer Interaktion und Fokus auf langfristige Wartbarkeit.</p>
+                            <a href="pages/projects.html" class="text-link">Beispiele ansehen</a>
+                        </div>
+                    </article>
+
+                    <article class="project-card reveal service-card">
+                        <div class="project-content">
+                            <i class="fa-solid fa-robot service-icon card-icon-secondary" aria-hidden="true"></i>
+                            <h3>KI und Automatisierung</h3>
+                            <p>Prozesse beschleunigen, Inhalte generieren, Daten aufbereiten und manuelle Arbeit systematisch reduzieren.</p>
+                            <a href="pages/projects.html" class="text-link">Anwendungsfälle ansehen</a>
+                        </div>
+                    </article>
+
+                    <article class="project-card reveal service-card">
+                        <div class="project-content">
+                            <i class="fa-solid fa-code service-icon card-icon-accent" aria-hidden="true"></i>
+                            <h3>Technische Beratung</h3>
+                            <p>Code-Analyse, Strukturverbesserung und realistische technische Entscheidungen statt unnötiger Komplexität.</p>
+                            <a href="pages/contact.html" class="text-link">Gespräch anfragen</a>
+                        </div>
+                    </article>
+                </div>
             </div>
         </section>
-    </div>
 
-    <!-- Footer Section -->
-    <footer class="footer-section">
-        <div class="footer-links">
-            <a href="#">Kontakt</a>
-            <a href="#">Impressum</a>
-            <a href="#">Datenschutz</a>
+        <section class="section-padding section-surface">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <span class="badge">FAQ</span>
+                    <h2>Häufige Fragen vor dem Start</h2>
+                </div>
+
+                <div class="faq-container">
+                    <article class="faq-item reveal">
+                        <h3>
+                            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-1" id="faq-question-1">
+                                <span>Wie läuft die Zusammenarbeit typischerweise ab?</span>
+                                <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                            </button>
+                        </h3>
+                        <div class="faq-answer" id="faq-answer-1" role="region" aria-labelledby="faq-question-1" hidden>
+                            <p>Zu Beginn klären wir Ziel, Rahmen und Prioritäten. Danach wird die Umsetzung in kleine, nachvollziehbare Schritte aufgeteilt, damit Fortschritt und Risiken jederzeit transparent bleiben.</p>
+                        </div>
+                    </article>
+
+                    <article class="faq-item reveal">
+                        <h3>
+                            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-2" id="faq-question-2">
+                                <span>Übernehmen Sie auch bestehende Projekte?</span>
+                                <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                            </button>
+                        </h3>
+                        <div class="faq-answer" id="faq-answer-2" role="region" aria-labelledby="faq-question-2" hidden>
+                            <p>Ja. Ich steige in vorhandene Codebasen ein, analysiere Risiken, identifiziere Quick Wins und formuliere einen realistischen Weg für Stabilisierung oder Ausbau.</p>
+                        </div>
+                    </article>
+
+                    <article class="faq-item reveal">
+                        <h3>
+                            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-3" id="faq-question-3">
+                                <span>Ist KI immer Teil der Lösung?</span>
+                                <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                            </button>
+                        </h3>
+                        <div class="faq-answer" id="faq-answer-3" role="region" aria-labelledby="faq-question-3" hidden>
+                            <p>Nein. KI wird nur eingesetzt, wenn sie einen klaren Nutzen bringt. Häufig ist eine bessere Prozessstruktur wertvoller als eine zusätzliche Modellintegration.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding">
+            <div class="container">
+                <div class="donation-box reveal">
+                    <h2>Schmidt Ruhr Apps begleiten und freie Tools mittragen</h2>
+                    <p class="donation-copy">
+                        Wenn du meine Arbeit verfolgst und freie Projekte unterstützen möchtest, kannst du das direkt über Patreon tun.
+                    </p>
+                    <a
+                        href="https://www.patreon.com/SchmidtCraftedApps"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn btn-light"
+                    >
+                        <i class="fa-brands fa-patreon" aria-hidden="true"></i>
+                        Auf Patreon unterstützen
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo logo">
+                <img src="images/schmidt-ruhr-apps-logo.svg" alt="Logo von Schmidt Ruhr Apps" class="brand-mark">
+                <span class="brand-copy">
+                    <span class="brand-name">Schmidt Ruhr Apps</span>
+                    <span class="brand-subtitle">Apps | KI | Automation</span>
+                </span>
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="pages/about.html">Über mich</a>
+                <a href="pages/projects.html">Projekte</a>
+                <a href="pages/contact.html">Kontakt</a>
+                <a href="pages/impressum.html">Impressum</a>
+                <a href="pages/datenschutz.html">Datenschutz</a>
+            </div>
+            <div class="social-links social-links-center">
+                <a href="mailto:info@schmidt-ruhr-apps.de" class="social-btn" aria-label="E-Mail senden">
+                    <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                </a>
+                <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn Profil">
+                    <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+                </a>
+                <a href="https://www.patreon.com/SchmidtCraftedApps" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Patreon Profil">
+                    <i class="fa-brands fa-patreon" aria-hidden="true"></i>
+                </a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Schmidt Ruhr Apps | Silas Schmidt. Alle Rechte vorbehalten.</p>
+            </div>
         </div>
     </footer>
 
-    <!-- Scroll-to-Top Button -->
-    <div class="scroll-to-top" id="scrollToTopBtn">
-        &#8679;
-    </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const textElement = document.getElementById("typing-text");
-            const phrases = [
-                "Innovative und kreative Apps sind bei uns zuhause.",
-                "Innovative und kreative Apps sind unsere Leidenschaft."
-            ];
-            let currentPhraseIndex = 0;
-            let currentText = '';
-            let i = 0;
-
-            function type() {
-                if (i < phrases[currentPhraseIndex].length) {
-                    currentText += phrases[currentPhraseIndex].charAt(i);
-                    textElement.innerHTML = `<span class="typewriter">${currentText}</span>`;
-                    i++;
-                    setTimeout(type, 100);  // Typing speed
-                } else {
-                    setTimeout(deleteText, 1500);  // Wait before deleting
-                }
-            }
-
-            function deleteText() {
-                if (i > 0) {
-                    currentText = currentText.slice(0, -1);
-                    textElement.innerHTML = `<span class="typewriter">${currentText}</span>`;
-                    i--;
-                    setTimeout(deleteText, 50);  // Deletion speed
-                } else {
-                    currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
-                    setTimeout(type, 500);  // Pause before typing next phrase
-                }
-            }
-
-            type();  // Start the typing effect
-
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetElement = document.querySelector(this.getAttribute('href'));
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
-
-            // Scroll-to-top button functionality
-            const scrollToTopBtn = document.getElementById('scrollToTopBtn');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 300) {
-                    scrollToTopBtn.classList.add('show');
-                } else {
-                    scrollToTopBtn.classList.remove('show');
-                }
-            });
-            scrollToTopBtn.addEventListener('click', () => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-
-            // Section visibility on scroll
-            const sections = document.querySelectorAll('.section');
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, {
-                threshold: 0.1
-            });
-
-            sections.forEach(section => {
-                observer.observe(section);
-            });
-        });
-    </script>
+    <script src="js/scripte.js"></script>
 </body>
 </html>
